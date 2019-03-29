@@ -1,12 +1,13 @@
 <template>
   <div class="sakura">
     <Header></Header>
-
+    <Slidebar></Slidebar>
   </div>
 </template>
 
 <script>
 import Header from './Header'
+import Slidebar from './Slidebar'
 export default {
   name: 'Home',
   data () {
@@ -16,6 +17,7 @@ export default {
   },
   components:{
     Header,
+    Slidebar,
   }
 }
 </script>

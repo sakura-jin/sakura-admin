@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <el-button type="danger">危险按钮</el-button>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -95,9 +96,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
+$color-bg:purple;
 h1, h2 {
   font-weight: normal;
+  background: $color-bg;
 }
 ul {
   list-style-type: none;

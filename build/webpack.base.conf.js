@@ -64,6 +64,16 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // 将 JS 字符串生成为 style 节点
+        }, {
+          loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+        }, {
+          loader: "scss-loader" // 将 Sass 编译成 CSS
+        }]
       }
     ]
   },

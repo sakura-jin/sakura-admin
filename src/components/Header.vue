@@ -21,13 +21,20 @@
           collapseChange:function(){
             this.isCollapse=!this.isCollapse;
             bus.$emit('collapse',this.isCollapse);
-          }
+          },
         },
        mounted(){
-          if(document.body.clientWidth<1000){
+         if(document.body.clientWidth<1000){
             this.collapseChange();
-            alert('fdsfs');
           }
+         window.onresize=()=>{
+           if(document.body.clientWidth<1000){
+             this.isCollapse=true;
+           }else{
+             this.isCollapse=false;
+           }
+           bus.$emit('collapse',this.isCollapse);
+         }
        }
     }
 </script>

@@ -1,19 +1,20 @@
 <template>
   <div class="slide">
     <el-menu
-      default-active="1"
+      default-active="/"
       class="el-menu-slide"
       @open="handleOpen"
       @close="handleClose"
       background-color="#324157"
       text-color="#bfcbd9"
       active-text-color="#20a0ff"
-      :collapse="isCollapse">
-      <el-menu-item index="1">
+      :collapse="isCollapse"
+      router>
+      <el-menu-item index="/">
           <i class="el-icon-location"></i>
           <span>系统首页</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="/BaseTable">
         <i class="el-icon-menu"></i>
         <span>基础表格</span>
       </el-menu-item>
@@ -51,7 +52,7 @@
             bus.$on('collapse',msg=>{
               this.isCollapse=msg;
             })
-        }
+        },
     }
 </script>
 

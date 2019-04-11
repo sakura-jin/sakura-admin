@@ -28,7 +28,7 @@ export default {
   },
   components:{
     Header,
-    Slidebar,
+    Slidebar
   },
   created(){
     bus.$on('collapse',msg=>this.isCollapse=msg);

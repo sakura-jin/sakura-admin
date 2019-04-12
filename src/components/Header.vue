@@ -24,11 +24,11 @@
           },
         },
        mounted(){
-         if(document.body.clientWidth<1000){
+         if(document.body.clientWidth<1600){
             this.collapseChange();
           }
          window.onresize=()=>{
-           if(document.body.clientWidth<1000){
+           if(document.body.clientWidth<1600){
              this.isCollapse=true;
            }else{
              this.isCollapse=false;

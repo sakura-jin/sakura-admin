@@ -64,8 +64,39 @@
             </el-col>
           </el-row>
           <el-card class="things-card" shadow="hover">
-
-
+            <div slot="header" class="clearfix">
+              <span>待办事项</span>
+              <el-button @click='add' class="add" type="text">添加</el-button>
+            </div>
+            <el-table :data="todoList" :show-header="false" height="304" style="width: 100%;font-size: 14px">
+              <el-table-column width="40">
+                <template slot-scope="scope">
+                  <el-checkbox v-model="scope.row.status"></el-checkbox>
+                </template>
+              </el-table-column>
+              <el-table-column>
+                <template slot-scope="scope">
+                  <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
+                </template>
+              </el-table-column>
+              <el-table-column width="40">
+                  <template slot-scope="scope">
+                    <el-button type="text" style="padding: 0 3px;"  @click.native.prevent="deleteRow(scope.$index, todoList)">删除</el-button>
+                  </template>
+                </el-table-column>
+            </el-table>
+          </el-card>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20" class="chart-row">
+        <el-col :span="12">
+          <el-card shadow="hover">
+            <schart ref="bar" class="schart" canvasId="bar" :data="chartData" type="bar" :options="options"></schart>
+          </el-card>
+        </el-col>
+        <el-col :span="12">
+          <el-card shadow="hover">
+            <schart ref="line" class="schart" canvasId="line" :data="chartData" type="line" :options="options2"></schart>
           </el-card>
         </el-col>
       </el-row>
@@ -73,8 +104,95 @@
 </template>
 
 <script>
+    import Schart from 'vue-schart'
     export default {
-        name: "Dashboard"
+        name: "Dashboard",
+        data(){
+          return {
+            todoList: [{
+              title: '今天要修复100个bug',
+              status: false,
+            },
+              {
+                title: '今天要修复100个bug',
+                status: false,
+              },
+              {
+                title: '今天要写100行代码加几个bug吧',
+                status: false,
+              }, {
+                title: '今天要修复100个bug',
+                status: false,
+              }
+            ],
+            chartData: [{
+              name: '2018/09/04',
+              value: 1083
+            },
+              {
+                name: '2018/09/05',
+                value: 941
+              },
+              {
+                name: '2018/09/06',
+                value: 1139
+              },
+              {
+                name: '2018/09/07',
+                value: 816
+              },
+              {
+                name: '2018/09/08',
+                value: 327
+              }
+            ],
+            options: {
+              title: '最近五天每天的用户访问量',
+              showValue: false,
+              fillColor: 'rgb(45, 140, 240)',
+              bottomPadding: 30,
+              topPadding: 30
+            },
+            options2: {
+              title: '最近五天用户访问趋势',
+              fillColor: '#FC6FA1',
+              axisColor: '#008ACD',
+              contentColor: '#EEEEEE',
+              bgColor: '#F5F8FD',
+              bottomPadding: 30,
+              topPadding: 30
+            }
+          }
+        },
+        components:{
+          Schart
+        },
+        methods:{
+          renderChart(){
+            this.$refs.bar.renderChart();
+            this.$refs.line.renderChart();
+          },
+          add(){
+            this.$prompt('请输入待办事项', '提示', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+            }).then(({ value }) => {
+              this.$message({
+                type: 'success',
+                message: '添加成功'
+              });
+              this.todoList.unshift({title:value, status: false})
+            }).catch(() => {
+              this.$message({
+                type: 'info',
+                message: '取消输入'
+              });
+            })
+          },
+          deleteRow(index, rows) {
+            rows.splice(index, 1);
+          }
+        }
     }
 </script>
 
@@ -155,9 +273,21 @@
 .grid1 .grid-right .grid-num{color: #2d8cf0;}
 .grid2 .grid-right .grid-num{color: #64d572;}
 .grid3 .grid-right .grid-num{color: #f25e43;}
-
 .things-card{
   height: 403px;
+  .add{
+    float: right;
+    padding: 3px 0;
+  }
+  .todo-item-del{
+    color: #999;
+    text-decoration: line-through;
+  }
+}
+.chart-row{margin-top: 20px}
+.schart{
+  width: 100%;
+  height: 300px;
 }
 
 

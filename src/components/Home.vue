@@ -23,12 +23,13 @@ export default {
   name: 'Home',
   data () {
     return {
-      isCollapse:false
+      isCollapse:false,
+      tagsList:[]
     }
   },
   components:{
     Header,
-    Slidebar
+    Slidebar,
   },
   created(){
     bus.$on('collapse',msg=>this.isCollapse=msg);
@@ -51,7 +52,7 @@ export default {
       padding: 10px;
       height: 100%;
       box-sizing: border-box;
-      /*overflow-y: scroll;*/
+      overflow-y: auto;
     }
   }
   .move-enter-active,

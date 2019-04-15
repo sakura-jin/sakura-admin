@@ -49,8 +49,8 @@
           }
         },
         created(){
-            bus.$on('collapse',msg=>{
-              this.isCollapse=msg;
+            bus.$on('collapse',val=>{
+              this.isCollapse=val;
             })
         },
     }

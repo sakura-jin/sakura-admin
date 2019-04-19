@@ -13,8 +13,8 @@ export default new Router({
       name: 'Home',
       component: Home,
       children:[
-        {path:'/',name:'Dashboard',component:Dashboard},
-        {path:'/BaseTable',name:'BaseTable',component:BaseTable}
+        {path:'',name:'Home',component:Dashboard},
+        {path:'BaseTable',name:'BaseTable',component:BaseTable}
       ]
     }
   ]

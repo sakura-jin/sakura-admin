@@ -3,15 +3,14 @@
     <h5>基础表格</h5>
     <div class="container">
       <div class="handle-box">
-        <el-button type="primary" class="handle-del" @click="delAll">批量删除</el-button>
-        <el-select placeholder="筛选省份" v-model="selectVal" class="handle-select">
+        <el-button type="primary" class="handle-del" @click="delAll" size="small">批量删除</el-button>
+        <el-select placeholder="筛选省份" v-model="selectVal" class="handle-select" size="small">
           <el-option key="1" label="广东省" value="广东省"></el-option>
           <el-option key="2" label="湖南省" value="湖南省"></el-option>
         </el-select>
-        <el-input v-model="selectWord" placeholder="筛选关键词" class="handle-input"></el-input>
-        <el-button type="primary">搜索</el-button>
+        <el-input v-model="selectWord" placeholder="筛选关键词" class="handle-input" size="small"></el-input>
+        <el-button type="primary" size="small">搜索</el-button>
       </div>
-
       <el-table :data="tableData" border @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55" align="center"></el-table-column>
         <el-table-column label="日期" sortable width="150" align="center" prop="date"></el-table-column>
@@ -24,9 +23,7 @@
           </template>
         </el-table-column>
       </el-table>
-
     </div>
-
     <!--编辑提示框-->
     <el-dialog title="编辑" :visible.sync="editVisible" width="30%" center>
       <el-form ref="form" :model="form" label-width="50px">

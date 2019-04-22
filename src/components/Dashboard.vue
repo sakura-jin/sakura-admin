@@ -105,6 +105,7 @@
 
 <script>
     import Schart from 'vue-schart'
+    import bus from '../assets/js/bus'
     export default {
         name: "Dashboard",
         data(){
@@ -164,6 +165,9 @@
             }
           }
         },
+        created(){
+          this.handleListenner();
+        },
         components:{
           Schart
         },
@@ -172,6 +176,15 @@
             this.$refs.bar.renderChart();
             this.$refs.line.renderChart();
           },
+          handleListenner(){
+            // bus.$on('collapse', this.handleBus);
+            window.addEventListener('resize', this.renderChart)
+          },
+          // handleBus(msg){
+          //   setTimeout(() => {
+          //     this.renderChart()
+          //   }, 100);
+          // },
           add(){
             this.$prompt('请输入待办事项', '提示', {
               confirmButtonText: '确定',

@@ -86,7 +86,6 @@
           },
           handleSelectionChange(val){
             this.multipleSelection=val;
-            console.log(val);
           },
           //批量删除
           delAll(){

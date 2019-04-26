@@ -35,9 +35,9 @@
       </el-submenu>
 
 
-      <el-menu-item index="4">
+      <el-menu-item index="BaseChart">
         <i class="el-icon-star-off"></i>
-        <span>Schart</span>
+        <span>Schart图表</span>
       </el-menu-item>
       <el-menu-item index="/DragList">
         <i class="el-icon-rank"></i>

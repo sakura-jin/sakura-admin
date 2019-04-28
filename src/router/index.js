@@ -6,6 +6,7 @@ import BaseTable from '@/components/BaseTable'
 import BaseForm from '@/components/BaseForm'
 import DragList from '@/components/DragList'
 import BaseChart from '@/components/BaseChart'
+import Upload from '@/components/Upload'
 
 Vue.use(Router)
 
@@ -19,7 +20,8 @@ export default new Router({
         {path:'BaseTable',name:'BaseTable',component:BaseTable},
         {path:'BaseForm',name:'BaseForm',component:BaseForm},
         {path:'DragList',name:'DragList',component:DragList},
-        {path:'BaseChart',name:'BaseChart',component:BaseChart}
+        {path:'BaseChart',name:'BaseChart',component:BaseChart},
+        {path:'Upload',name:'Upload',component:Upload}
       ]
     }
   ]

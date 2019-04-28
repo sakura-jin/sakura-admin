@@ -12,36 +12,36 @@
       router>
       <el-menu-item index="/">
           <i class="el-icon-location"></i>
-          <span>系统首页</span>
+          <span slot="title">系统首页</span>
       </el-menu-item>
       <el-menu-item index="/BaseTable">
         <i class="el-icon-menu"></i>
-        <span>基础表格</span>
+        <span slot="title">基础表格</span>
       </el-menu-item>
 
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-tickets"></i>
-          <span>表单相关</span>
+          <span slot="title">表单相关</span>
         </template>
         <el-menu-item index="/BaseForm">
           <i class="el-icon-edit-outline"></i>
-          <span>基本表单</span>
+          <span slot="title">基本表单</span>
         </el-menu-item>
-        <el-menu-item index="3-2">
+        <el-menu-item index="/Upload">
           <i class="el-icon-upload2"></i>
-          <span>文件上传</span>
+          <span slot="title">文件上传</span>
         </el-menu-item>
       </el-submenu>
 
 
       <el-menu-item index="BaseChart">
         <i class="el-icon-star-off"></i>
-        <span>Schart图表</span>
+        <span slot="title">Schart图表</span>
       </el-menu-item>
       <el-menu-item index="/DragList">
         <i class="el-icon-rank"></i>
-        <span>拖拽组件</span>
+        <span slot="title">拖拽组件</span>
       </el-menu-item>
     </el-menu>
   </div>

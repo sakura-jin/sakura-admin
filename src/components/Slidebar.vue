@@ -33,8 +33,6 @@
           <span slot="title">文件上传</span>
         </el-menu-item>
       </el-submenu>
-
-
       <el-menu-item index="BaseChart">
         <i class="el-icon-star-off"></i>
         <span slot="title">Schart图表</span>
@@ -43,9 +41,12 @@
         <i class="el-icon-rank"></i>
         <span slot="title">拖拽组件</span>
       </el-menu-item>
+      <el-menu-item index="/ErrorPage">
+        <i class="el-icon-warning"></i>
+        <span slot="title">404页面</span>
+      </el-menu-item>
     </el-menu>
   </div>
-
 </template>
 
 <script>

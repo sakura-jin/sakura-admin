@@ -177,14 +177,14 @@
             this.$refs.line.renderChart();
           },
           handleListenner(){
-            // bus.$on('collapse', this.handleBus);
+            bus.$on('collapse', this.handleBus);
             window.addEventListener('resize', this.renderChart)
           },
-          // handleBus(msg){
-          //   setTimeout(() => {
-          //     this.renderChart()
-          //   }, 100);
-          // },
+          handleBus(msg){
+            setTimeout(() => {
+              this.renderChart()
+            }, 300);
+          },
           add(){
             this.$prompt('请输入待办事项', '提示', {
               confirmButtonText: '确定',
@@ -277,7 +277,6 @@
       font-weight: bold;
       margin-bottom: 4px;
     }
-
   }
 }
 .grid1 i{background: #2d8cf0;}

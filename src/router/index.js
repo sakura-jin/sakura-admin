@@ -7,6 +7,7 @@ import BaseForm from '@/components/BaseForm'
 import DragList from '@/components/DragList'
 import BaseChart from '@/components/BaseChart'
 import Upload from '@/components/Upload'
+import ErrorPage from '@/components/ErrorPage'
 
 Vue.use(Router)
 
@@ -21,8 +22,10 @@ export default new Router({
         {path:'BaseForm',name:'BaseForm',component:BaseForm},
         {path:'DragList',name:'DragList',component:DragList},
         {path:'BaseChart',name:'BaseChart',component:BaseChart},
-        {path:'Upload',name:'Upload',component:Upload}
+        {path:'Upload',name:'Upload',component:Upload},
+        {path:'ErrorPage',name:'ErrorPage',component:ErrorPage}
       ]
-    }
+    },
+    { path: '*',redirect:'ErrorPage'}
   ]
 })

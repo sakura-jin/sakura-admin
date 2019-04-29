@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "element-ui": "^2.7.0",
+    "element-ui": "^2.8.2",
     "vue": "^2.5.2",
     "vue-cropperjs": "^3.0.0",
     "vue-router": "^3.0.1",

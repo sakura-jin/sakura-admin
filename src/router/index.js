@@ -8,6 +8,7 @@ import DragList from '@/components/DragList'
 import BaseChart from '@/components/BaseChart'
 import Upload from '@/components/Upload'
 import ErrorPage from '@/components/ErrorPage'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -26,6 +27,7 @@ export default new Router({
         {path:'ErrorPage',name:'ErrorPage',component:ErrorPage}
       ]
     },
-    { path: '*',redirect:'ErrorPage'}
+    { path: '*',redirect:'ErrorPage'},
+    {path:'/Login',name:'Login',component:Login}
   ]
 })

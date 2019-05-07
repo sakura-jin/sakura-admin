@@ -171,6 +171,10 @@
         components:{
           Schart
         },
+        deactivated(){
+          window.removeEventListener('resize', this.renderChart);
+          bus.$off('collapse', this.handleBus);
+        },
         methods:{
           renderChart(){
             this.$refs.bar.renderChart();

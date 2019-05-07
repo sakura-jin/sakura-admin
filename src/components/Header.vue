@@ -6,6 +6,21 @@
     <div class="logo">
       悼亡者的归来
     </div>
+    <div class="header-right">
+      <div class="user-photo"><img src="../assets/images/photo.jpg" alt=""></div>
+      <el-dropdown class="user-name" trigger="click" @command="handleCommand">
+          <span class="el-dropdown-link">
+            sakura
+            <i class="el-icon-caret-bottom"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <a href="https://github.com/sakura-jin/sakura-admin" target="_blank">
+              <el-dropdown-item>项目仓库</el-dropdown-item>
+            </a>
+            <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+      </el-dropdown>
+    </div>
   </header>
 </template>
 <script>
@@ -18,6 +33,11 @@
           }
         },
         methods:{
+          handleCommand(command){
+            if(command=='loginout'){
+              this.$router.push('/login');
+            }
+          },
           collapseChange:function(){
             this.isCollapse=!this.isCollapse;
             bus.$emit('collapse',this.isCollapse);
@@ -59,6 +79,28 @@ header{
     color: #fff;
     font-size: 22px;
     font-weight: bold;
+  }
+  .header-right{
+    float: right;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    margin-right: 50px;
+    .user-photo{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 20px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .el-dropdown-link{
+      color: #fff;
+      cursor: pointer;
+    }
   }
 }
 </style>
